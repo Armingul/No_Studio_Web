@@ -1,34 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
 import Product from '../components/Product';
 import MessageBox from '../components/MessageBox';
 import LoadingBox from '../components/LoadingBox';
+import { useDispatch, useSelector } from 'react-redux';
+import { listProducts } from '../actions/productActions';
 
 
 export default function HomeScreen() {
-  //useState es un Hook que nos permite tener estado y otras caracteristicas de React
-  //permite usar exactamente que this.state
-  const [products, setProducts] = useState([]);
-  const[loading, setLoading] = useState(false);
-  const[error, setError] = useState(false);
+  const dispatch = useDispatch();
+  const productsList = useSelector((state) => state.productsList);
+  const {loading, error, products} = productsList;
+
 
   //effect es otro hook despues de renderizar el componente esta funcion
   //utiliza una funcion y un array
   //despues de renderizar el componente esta funcion se ejecuta solo una vez
   useEffect(()=>{
-    const fecthData = async () => {
-      try {
-        setLoading(true);
-        const {data} = await axios.get('/api/products');
-        setLoading(false);
-        setProducts(data);
-      } catch (err) {
-        setError(err.message);
-        setLoading(false);
-      }
-   
-    };
-    fecthData();
+    dispatch(listProducts());
   }, []);
 
   return (
