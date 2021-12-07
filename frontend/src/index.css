@@ -1,3 +1,5 @@
+@import url('../src/fonts/panchang.css');
+
 html {
   font-size: 62.5%; /* 16px x 62.5 = 10px = 1rem */
   box-sizing: border-box;
@@ -6,9 +8,11 @@ body {
   margin: 0;
   height: 100vh;
   font-size: 1.6rem;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Panchang-Variable';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #111111;
+
 }
 #root {
   height: 100%;
@@ -27,7 +31,7 @@ body {
 }
 header {
   grid-area: header;
-  background-color: #000000;
+  background-color: #111111;
 }
 main {
   grid-area: main;
@@ -35,24 +39,28 @@ main {
 }
 footer {
   grid-area: footer;
-  background-color: #000000;
+  background-color: #111111;
   color: #ffffff;
 }
 /* Common */
 h1 {
   font-size: 1.8rem;
   padding: 1rem 0;
+  color: white;
 }
 h2 {
   font-size: 1.6rem;
   padding: 1rem 0;
+  color: #111111;
+  
 }
 
 a {
   text-decoration: none;
+ 
 }
 a:hover {
-  color: #ff8000;
+  color: #b6b0aa;
 }
 ul {
   padding: 0;
@@ -61,6 +69,7 @@ ul {
 }
 li {
   margin-top: 1rem;
+  
 }
 input,
 select,
@@ -86,7 +95,7 @@ button:hover {
   border: 0.1rem #404040 solid;
 }
 button.primary {
-  background-color: #f0c040;
+  background-color: #dac7c8;
 }
 button.block {
   width: 100%;
@@ -116,6 +125,16 @@ a.brand {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  
+}
+
+.row-cart{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border: 50%;
 }
 .row.center {
   justify-content: center;
@@ -125,6 +144,7 @@ a.brand {
 }
 .col-1 {
   flex: 1 1 25rem;
+  color: #a4a4a4;
 }
 .col-2 {
   flex: 0.8 1 25rem;
@@ -215,6 +235,7 @@ img.large {
 .form label {
   margin: 1rem 0;
   display: block;
+  color: #c0c0c0;
 }
 
 /* Dropdown */
@@ -236,4 +257,55 @@ img.large {
 }
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+/* HomeScreen*/
+.home{
+  display: flex;
+  width: auto;
+  
+  height: 100%;
+ 
+}
+.left{
+  
+
+  height: 100%;
+  float: left;
+  width: 50%;
+}
+.rigth{
+ 
+
+  height: 100%;
+  float: right;
+  width: 72%;
+
+}
+.title{
+  
+  margin-top: 20%;
+  width: fit-content;
+  height: fit-content;
+  color: #c0c0c0;
+  font-size: 96px;
+  line-height: 127px;
+  text-align: center;
+  left: 32px;
+  top: 238px;
+}
+.subtitle{
+
+  
+  margin-left: 56%;
+  margin-top: -9%;
+  width: 40%;
+  height: fit-content;
+  color: #c0c0c0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 20px;
+  left: 391px;
+  top: 530px;
 }

@@ -7,6 +7,7 @@ import HomeScreen from './screens/HomeScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import ProductScreen from './screens/ProductScreen';
 import SigninScreen from './screens/SigningScreen';
+import ListProductsScreen from './screens/ListProductScreen';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
             </Link>
           </div>
           <div>
+          <Link to="listProducts">Coleccion </Link>
             <Link to="/cart">Cart
             {cartItems.length > 0 && (
               <span className="badge">{cartItems.length}</span>
@@ -54,6 +56,7 @@ function App() {
           </div>
         </header>
         <main>
+          <Route path="/listProducts" component={ListProductsScreen}></Route>
           <Route path="/cart/:id?" component={CartScreen}></Route>
           <Route path="/product/:id" component={ProductScreen}></Route>
           <Route path="/signin" component={SigninScreen}></Route>
