@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-mongoose.connect(process.env.MONGODB_URL || 'mongodb+srv://NoStudio:AdminNoStudio@cluster0.sorbo.mongodb.net/NoStudio', { 
+mongoose.connect(process.env.MONGODB_URL || 'mongodb+srv://NoStudio:AdminNoStudio@cluster0.sorbo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { 
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
