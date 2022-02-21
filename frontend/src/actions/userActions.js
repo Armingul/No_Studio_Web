@@ -9,13 +9,19 @@ import {
   USER_SIGNOUT,
 } from '../constants/userConstants';
 
-export const register = (name, email, password) => async (dispatch) => {
+export const register = (email, password, name, surnames, address, postalCode, phoneNumber, documentType, documentNumber) => async (dispatch) => {
   dispatch({ type: USER_REGISTER_REQUEST, payload: { email, password } });
   try {
     const { data } = await Axios.post('/api/users/register', {
-      name,
       email,
       password,
+      name,
+      surnames,
+      address,
+      postalCode,
+      phoneNumber,
+      documentType,
+      documentNumber
     });
     dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });

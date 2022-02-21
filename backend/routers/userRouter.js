@@ -40,8 +40,14 @@ userRouter.post(
   expressAsyncHandler(async (req, res) => {
     const user = new User({
       name: req.body.name,
+      surnames: req.body.surnames,
       email: req.body.email,
       password: bcrypt.hashSync(req.body.password, 8),
+      address: req.body.address,
+      postalCode: req.body.postalCode,
+      phoneNumber: req.body.phoneNumber,
+      documentType: req.body.documentType,
+      documentNumber: req.body.documentNumber
     });
     const createdUser = await user.save();
     res.send({

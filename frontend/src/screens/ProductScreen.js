@@ -61,7 +61,7 @@ export default function ProductScreen(props) {
                     <div className="row">
                       <div>Status</div>
                       <div>
-                        {product.active == true ? (
+                        {product.active === true ? (
                           <span className="success">In Stock</span>
                         ) : (
                           <span className="danger">Unavailable</span>
@@ -70,7 +70,7 @@ export default function ProductScreen(props) {
                     </div>
                   </li>
                   {
-                    product.active == true && (
+                    product.active === true && (
                       <>
                       <li>
                         <div className="row">
