@@ -61,7 +61,7 @@ export default function ProductScreen(props) {
                     <div className="row">
                       <div>Status</div>
                       <div>
-                        {product.countInStock > 0 ? (
+                        {product.active == true ? (
                           <span className="success">In Stock</span>
                         ) : (
                           <span className="danger">Unavailable</span>
@@ -70,7 +70,7 @@ export default function ProductScreen(props) {
                     </div>
                   </li>
                   {
-                    product.countInStock > 0 && (
+                    product.active == true && (
                       <>
                       <li>
                         <div className="row">
@@ -78,7 +78,7 @@ export default function ProductScreen(props) {
                           <div>
                             <select value={qty} onChange={e => setQty(e.target.value)}>
                               {
-                                [...Array(product.countInStock).keys()].map(
+                                [...Array(10).keys()].map(
                                   x => (
                                   <option key={x+1}
                                    value = {x+1}>{x+1}</option>  
