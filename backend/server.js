@@ -26,7 +26,7 @@ app.use((err, req, res, next) => {
   });
 
 //si el puerto proces.env.PORT no existe lo lanzaria en el 5000
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 6000;
 app.listen(port, ()=>{
     console.log(`Serve at http://localhost:${port}`);
 });
