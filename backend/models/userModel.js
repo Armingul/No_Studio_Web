@@ -12,7 +12,6 @@ const userSchema = new mongoose.Schema(
     documentType: { type: String},
     documentNumber: { type: String},
     active: { type: Boolean, default: true, required: true },
-    isAdmin: { type: Boolean, default: false, required: true },
   },
   {
     timestamps: true,

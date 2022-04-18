@@ -57,16 +57,6 @@ export default function RegisterScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="surnames">Surnames</label>
-          <input
-            type="text"
-            id="surnames"
-            placeholder="Enter surname"
-            required
-            onChange={(e) => setSurnames(e.target.value)}
-          ></input>
-        </div>
-        <div>
           <label htmlFor="email">Email address</label>
           <input
             type="email"
@@ -94,56 +84,6 @@ export default function RegisterScreen(props) {
             placeholder="Enter confirm password"
             required
             onChange={(e) => setConfirmPassword(e.target.value)}
-          ></input>
-        </div>
-        <div>
-          <label htmlFor="address">Address</label>
-          <input
-            type="text"
-            id="address"
-            placeholder="Enter address"
-            required
-            onChange={(e) => setAddress(e.target.value)}
-          ></input>
-        </div>
-        <div>
-          <label htmlFor="postalCode">Postal Code</label>
-          <input
-            type="number"
-            id="postalCode"
-            placeholder="Enter postal code"
-            required
-            onChange={(e) => setPostalCode(e.target.value)}
-          ></input>
-        </div>
-        <div>
-          <label htmlFor="phoneNumber">Phone number</label>
-          <input
-            type="number"
-            id="phoneNumber"
-            placeholder="Enter phone number"
-            required
-            onChange={(e) => setphoneNumber(e.target.value)}
-          ></input>
-        </div>
-        <div>
-          <label htmlFor="documentType">Document type</label>
-          <input
-            type="text"
-            id="documentType"
-            placeholder="Enter document type"
-            required
-            onChange={(e) => setdocumentType(e.target.value)}
-          ></input>
-        </div>
-        <div>
-          <label htmlFor="documentNumber">Document number</label>
-          <input
-            type="text"
-            id="documentNumber"
-            placeholder="Enter document number"
-            required
-            onChange={(e) => setDocumentNumber(e.target.value)}
           ></input>
         </div>
         <div>
