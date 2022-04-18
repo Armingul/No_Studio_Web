@@ -70,14 +70,10 @@ export default function OrderScreen(props) {
                   {order.shippingAddress.city},{' '}
                   {order.shippingAddress.postalCode},
                   {order.shippingAddress.country}
-                </p>
-                {order.isDelivered ? (
                   <MessageBox variant="success">
-                    Delivered at {order.deliveredAt}
+                    Status: {order.status}
                   </MessageBox>
-                ) : (
-                  <MessageBox variant="danger">Not Delivered</MessageBox>
-                )}
+                </p>
               </div>
             </li>
             <li>
