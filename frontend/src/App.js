@@ -9,9 +9,11 @@ import ProductScreen from './screens/ProductScreen';
 import SigninScreen from './screens/SigningScreen';
 import ListProductsScreen from './screens/ListProductScreen';
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
+import ProfileScreen from './screens/ProfileScreen';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen';
+import OrderHistoryScreen from './screens/OrderHistoryScreen';
 
 function App() {
 
@@ -50,6 +52,12 @@ function App() {
                       <Link to="#signout" onClick={signoutHandler}>
                         Sign Out
                       </Link>
+                      <li>
+                    <Link to="/profile">User Profile</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderhistory">Order History</Link>
+                  </li>
                     </ul>
                 </div>
               ) : (
@@ -69,6 +77,8 @@ function App() {
           <Route path="/payment" component={PaymentMethodScreen}></Route>
           <Route path="/placeorder" component={PlaceOrderScreen}></Route>
           <Route path="/order/:id" component={OrderScreen}></Route>
+          <Route path="/profile" component={ProfileScreen}></Route>
+          <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
         <footer className="row center">All right reserved</footer>
@@ -78,3 +88,6 @@ function App() {
 }
 
 export default App;
+
+
+ 
