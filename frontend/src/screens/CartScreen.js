@@ -16,9 +16,10 @@ export default function CartScreen(props){
     const qty = props.location.search
                 ? Number(props.location.search.split('=')[1])
                 : 1;
-        const cart = useSelector((state) => state.cart);
-        const {cartItems} = cart;
-        const dispatch = useDispatch();
+                
+    const cart = useSelector((state) => state.cart);
+    const {cartItems} = cart;
+    const dispatch = useDispatch();
         useEffect(()=>{
             if(productId){
                 dispatch(addToCart(productId, qty));
@@ -28,7 +29,7 @@ export default function CartScreen(props){
     const removeFromCartHandler = (id) => {
         dispatch(removeFromCart(id));
     };
-        
+
     const checkoutHandler = () => {
         props.history.push('/signin?redirect=shipping');
     };
@@ -53,8 +54,11 @@ export default function CartScreen(props){
                     ></img>
                   </div>
                   <div className="min-30">
-                    <Link to={`/product/${item.product}`}>{item.name}</Link>
-                  </div>
+                    <Link to={`/product/${item.product}`}>{item.name}</Link> 
+                  </div>     
+                  <div>
+                        Talla: {item.size}
+                    </div>
                   <div>
                     <select
                       value={item.qty}
@@ -64,11 +68,11 @@ export default function CartScreen(props){
                         )
                       }
                     >
-                      {[...Array(item.qty).keys()].map((x) => (
-                        <option key={x + 1} value={x + 1}>
-                          {x + 1}
-                        </option>
-                      ))}
+                   {[...Array(10).keys()].map(
+                      x => (
+                        <option key={x+1}
+                          value = {x+1}>{x+1}</option>  
+                    ))}
                     </select>
                   </div>
                   <div>${item.price}</div>

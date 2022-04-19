@@ -3,7 +3,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { detailsProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
+import { addToCart, removeFromCart } from '../actions/cartActions';
 import MessageBox from '../components/MessageBox';
+
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import NativeSelect from '@material-ui/core/NativeSelect';
+import InputBase from '@material-ui/core/InputBase';
 
 
 export default function ProductScreen(props) {
@@ -17,8 +26,56 @@ export default function ProductScreen(props) {
     dispatch(detailsProduct(productId));
   }, [dispatch, productId]);
   const addToCartHandler = () =>{
-    props.history.push(`/cart/${productId}?qty=${qty}`);
+    dispatch(addToCart(productId, qty,age));
+    //props.history.push(`/cart/${productId}?qty=${qty}&size=${age}`);
   };
+  const BootstrapInput = withStyles((theme) => ({
+    root: {
+      'label + &': {
+        marginTop: theme.spacing(3),
+      },
+    },
+    input: {
+      borderRadius: 4,
+      position: 'relative',
+      backgroundColor: theme.palette.background.paper,
+      border: '1px solid #ced4da',
+      fontSize: 16,
+      padding: '10px 26px 10px 12px',
+      transition: theme.transitions.create(['border-color', 'box-shadow']),
+      // Use the system font instead of the default Roboto font.
+      fontFamily: [
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+      ].join(','),
+      '&:focus': {
+        borderRadius: 4,
+        borderColor: '#80bdff',
+        boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
+      },
+    },
+  }))(InputBase);
+  
+  const useStyles = makeStyles((theme) => ({
+    margin: {
+      margin: theme.spacing(1),
+    },
+  }));
+
+  const classes = useStyles();
+  const [age, setAge] = React.useState('');
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
   return (
     <div>
       {loading ? (
@@ -46,7 +103,28 @@ export default function ProductScreen(props) {
                   Description:
                   <p>{product.description}</p>
                 </li>
+
+      <FormControl className={classes.margin}>
+        Select Size
+        <Select
+          labelId="demo-customized-select-label"
+          id="demo-customized-select"
+          value={age}
+          onChange={handleChange}
+          input={<BootstrapInput />}
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value='XS'>XS</MenuItem>
+          <MenuItem value='S'>S</MenuItem>
+          <MenuItem value='M'>M</MenuItem>
+          <MenuItem value='L'>L</MenuItem>
+          <MenuItem value='XL'>XL</MenuItem>
+        </Select>
+      </FormControl>
               </ul>
+              
             </div>
             <div className="col-1">
               <div className="card card-body">

@@ -7,7 +7,9 @@ import {
   } from '../constants/cartConstants';
 
 
-export const addToCart = (productId, qty) => async(dispatch, getState) => {
+
+export const addToCart = (productId, qty,size,) => async(dispatch, getState) => {
+    debugger;
     const {data} = await Axios.get(`/api/products/${productId}`);
     dispatch({
         type: CART_ADD_ITEM,
@@ -18,12 +20,14 @@ export const addToCart = (productId, qty) => async(dispatch, getState) => {
             countInStock: data.countInStock,
             product: data._id,
             qty,
+            size,
         },
     });
     localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
 }
 
 export const saveShippingAddress = (data) => (dispatch) => {
+
     dispatch({ type: CART_SAVE_SHIPPING_ADDRESS, payload: data });
     localStorage.setItem('shippingAddress', JSON.stringify(data));
   };

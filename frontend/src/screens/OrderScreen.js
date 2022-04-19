@@ -110,6 +110,10 @@ export default function OrderScreen(props) {
                             {item.name}
                           </Link>
                         </div>
+                        <div>
+                          <p>Talla: {item.size}</p>
+                          
+                        </div>
 
                         <div>
                           {item.qty} x ${item.price} = ${item.qty * item.price}
